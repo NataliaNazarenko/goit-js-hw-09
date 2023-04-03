@@ -14,11 +14,9 @@ function getRandomHexColor() {
 
 refs.startBtn.addEventListener('click', () => {
   timerId = setInterval(() => {
-    if (refs.startBtn) {
-      document.body.style.backgroundColor = getRandomHexColor();
-      refs.startBtn.disabled = true;
-      refs.stopBtn.disabled = false;
-    }
+    document.body.style.backgroundColor = getRandomHexColor();
+    refs.startBtn.disabled = true;
+    refs.stopBtn.disabled = false;
   }, 1000);
 });
 
