@@ -2,6 +2,8 @@ const refs = {
   startBtn: document.querySelector('[data-start]'),
   stopBtn: document.querySelector('[data-stop]'),
 };
+
+let timerId = null;
 refs.stopBtn.disabled = true;
 
 function getRandomHexColor() {
