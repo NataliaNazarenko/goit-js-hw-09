@@ -52,7 +52,7 @@ function addLeadingZero(value) {
   return String(value).padStart(2, 0);
 }
 
-function valueForTimer({ days, hours, minutes, seconds }) {
+function valueForTimer({ days = '00', hours = '00', minutes = '00', seconds = '00' } = {}) {
   refs.days.textContent = addLeadingZero(days);
   refs.hours.textContent = addLeadingZero(hours);
   refs.minutes.textContent = addLeadingZero(minutes);
@@ -61,8 +61,8 @@ function valueForTimer({ days, hours, minutes, seconds }) {
 
 refs.btnStart.addEventListener('click', () => {
   timerId = setInterval(() => {
-    const newDate = fp.selectedDates[0];
-    const nowDate = new Date();
+    const newDate = new Date(refs.input.value);
+    const nowDate = Date.now();
     const diff = newDate - nowDate;
     if (diff < 0) {
       clearInterval(timerId);
